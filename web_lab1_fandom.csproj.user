@@ -11,6 +11,6 @@
     <WebStackScaffolding_DbContextTypeFullName>web_lab1_fandom.Models.FandomContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <NameOfLastUsedPublishProfile>fandom</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>fandomLab - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

@@ -18,7 +18,7 @@ namespace web_lab1_fandom
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("LocalConnection");
+            string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<FandomContext>(options => options.UseSqlServer(connection));
             services.AddControllersWithViews();
         }
