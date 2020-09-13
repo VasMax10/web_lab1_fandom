@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lT2aXwBcd+4XeygthyPD0IM0E+QC7GYdgcYGCZx1bFzGJRB5zQkDnuH0zO4zGgbTm2W3nESMAI7ieGIJHPoA+g==",
+  "dgSpecHash": "qs3wRZxaLTTFtbOzMLYY5Er/1+bagFI8p0KZiFN+GYr68fwCo/Lb9Z0F5GQNWwayRm8OZlsK5xETGwNqeY17wA==",
   "success": true,
   "projectFilePath": "C:\\Users\\VasMax10\\source\\repos\\VasMax10\\web_lab1_fandom\\web_lab1_fandom.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\VasMax10\\.nuget\\packages\\bootstrap\\2.3.1\\bootstrap.2.3.1.nupkg.sha512",
+    "C:\\Users\\VasMax10\\.nuget\\packages\\bootstrap-colorpicker\\2.3.2\\bootstrap-colorpicker.2.3.2.nupkg.sha512",
     "C:\\Users\\VasMax10\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\VasMax10\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\VasMax10\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

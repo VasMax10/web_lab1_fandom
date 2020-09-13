@@ -383,8 +383,6 @@ C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.dll
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.pdb
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.genruntimeconfig.cache
-C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.csproj.CoreCompileInputs.cache
-C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\EntityFramework.dll
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\System.CodeDom.dll
@@ -393,5 +391,5 @@ C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\fandomLab - Web Deploy\profile.arm.json
 C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.fandomLab - Web Deploy.json
-C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\fandomLab - Web Deploy\mssql1.arm.json
-C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\fandomLab - Web Deploy\mssql2.arm.json
+C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.csproj.CoreCompileInputs.cache
+C:\Users\VasMax10\source\repos\VasMax10\web_lab1_fandom\obj\Debug\netcoreapp3.1\web_lab1_fandom.MvcApplicationPartsAssemblyInfo.cache

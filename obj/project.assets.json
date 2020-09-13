@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "bootstrap/2.3.1": {
+        "type": "package"
+      },
+      "bootstrap-colorpicker/2.3.2": {
+        "type": "package",
+        "dependencies": {
+          "bootstrap": "2.3.1"
+        }
+      },
       "EntityFramework/6.4.4": {
         "type": "package",
         "dependencies": {
@@ -2859,6 +2868,45 @@
     }
   },
   "libraries": {
+    "bootstrap/2.3.1": {
+      "sha512": "SiFlq6RNrocS+G+Ov8ifXTuMIPd8IphUx7SVbxgvri64psUWMGKkMRDiaUDf3J3i96ClpjcJtcuKi9KW0bc9Kw==",
+      "type": "package",
+      "path": "bootstrap/2.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.2.3.1.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap-responsive.css",
+        "content/Content/bootstrap-responsive.min.css",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.min.css",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js",
+        "content/img/glyphicons-halflings-white.png",
+        "content/img/glyphicons-halflings.png"
+      ]
+    },
+    "bootstrap-colorpicker/2.3.2": {
+      "sha512": "cYWcjV9jXJI+M4l0V15sJOTVlKPdLiBoOpv3AjJBC9Zs7rCdd+1/kPoMvSPCNcJxerQpdvch5s9S3Sz7k9UkPg==",
+      "type": "package",
+      "path": "bootstrap-colorpicker/2.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap-colorpicker.2.3.2.nupkg.sha512",
+        "bootstrap-colorpicker.nuspec",
+        "content/Content/bootstrap-colorpicker/css/bootstrap-colorpicker.css",
+        "content/Content/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css",
+        "content/Content/bootstrap-colorpicker/img/alpha-horizontal.png",
+        "content/Content/bootstrap-colorpicker/img/alpha.png",
+        "content/Content/bootstrap-colorpicker/img/hue-horizontal.png",
+        "content/Content/bootstrap-colorpicker/img/hue.png",
+        "content/Content/bootstrap-colorpicker/img/saturation.png",
+        "content/Scripts/bootstrap-colorpicker.js",
+        "content/Scripts/bootstrap-colorpicker.min.js"
+      ]
+    },
     "EntityFramework/6.4.4": {
       "sha512": "yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "type": "package",
@@ -9145,7 +9193,8 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
-      "System.Configuration.ConfigurationManager >= 4.7.0"
+      "System.Configuration.ConfigurationManager >= 4.7.0",
+      "bootstrap-colorpicker >= 2.3.2"
     ]
   },
   "packageFolders": {
@@ -9227,6 +9276,10 @@
           "System.Configuration.ConfigurationManager": {
             "target": "Package",
             "version": "[4.7.0, )"
+          },
+          "bootstrap-colorpicker": {
+            "target": "Package",
+            "version": "[2.3.2, )"
           }
         },
         "imports": [
