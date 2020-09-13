@@ -76,6 +76,10 @@
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[4.7.0, )"
+            },
+            "bootstrap-colorpicker": {
+              "target": "Package",
+              "version": "[2.3.2, )"
             }
           },
           "imports": [
