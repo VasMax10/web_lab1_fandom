@@ -49,9 +49,9 @@ namespace web_lab1_fandom.Controllers
         // GET: Casts/Create
         public IActionResult Create()
         {
-            ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "ID");
-            ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "ID");
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "ID");
+            ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "Name");
+            ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "Name");
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name");
             return View();
         }
 
@@ -87,9 +87,9 @@ namespace web_lab1_fandom.Controllers
             {
                 return NotFound();
             }
-            ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "ID", casts.ActorID);
-            ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "ID", casts.CharacterID);
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "ID", casts.SeriesID);
+            ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "Name", casts.ActorID);
+            ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "Name", casts.CharacterID);
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name", casts.SeriesID);
             return View(casts);
         }
 

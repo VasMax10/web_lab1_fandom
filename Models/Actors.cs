@@ -16,6 +16,7 @@ namespace web_lab1_fandom.Models
         public string Photo { get; set; }
         //[Required(ErrorMessage = "This field is required")]
         [Display(Name = "Birthdate")]
+        //[Range(1,DateTime.UtcNow)]
         public DateTime Birthdate { get; set; }
         [Display(Name = "Information")]
         public string Info { get; set; }

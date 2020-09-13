@@ -39,7 +39,8 @@ namespace web_lab1_fandom.Controllers
                 return NotFound();
             }
 
-            return View(series);
+            //return View(series);
+            return RedirectToAction("Index", "Casts", new { id = series.ID, name = series.Name });
         }
 
         // GET: Series/Create

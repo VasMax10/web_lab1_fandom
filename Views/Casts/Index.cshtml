@@ -40,13 +40,13 @@
                 @Html.DisplayFor(modelItem => item.LastAppereance)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Series.ID)
+                @Html.DisplayFor(modelItem => item.Series.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Actor.ID)
+                @Html.DisplayFor(modelItem => item.Actor.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Character.ID)
+                @Html.DisplayFor(modelItem => item.Character.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
