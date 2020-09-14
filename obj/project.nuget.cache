@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6XvcASESiy1tjSCH2IT9CJ4IeL4XDlw5SfrR3dUbNhqLwnl/FK5C5UkhHiOV502XuAn7oLpH0hQph64Osc3/sw==",
+  "dgSpecHash": "7X37mfHQufyE7ayBtGPoetDyFvMJLq2Y/uUYrI69sCoHt1aiyOuFa+X23gRe28S8sZ++56vRFlns9LcRkm1Eig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
+  "projectFilePath": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\VasMax10\\.nuget\\packages\\bootstrap\\2.3.1\\bootstrap.2.3.1.nupkg.sha512",
     "C:\\Users\\VasMax10\\.nuget\\packages\\bootstrap-colorpicker\\2.3.2\\bootstrap-colorpicker.2.3.2.nupkg.sha512",

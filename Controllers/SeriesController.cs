@@ -80,7 +80,7 @@ namespace web_lab1_fandom.Controllers
 
                 imagePath = imagePath + @"\";
 
-                var filePath = @".." + Path.Combine(imagePath, filename);
+                var filePath = Path.Combine(imagePath, filename);
                 using (var fileStream = new FileStream(fullPath, FileMode.Create))
                 {
                     await Poster.CopyToAsync(fileStream);
@@ -103,7 +103,7 @@ namespace web_lab1_fandom.Controllers
 
                 imagePath = imagePath + @"\";
 
-                var filePath = @".." + Path.Combine(imagePath, filename);
+                var filePath = Path.Combine(imagePath, filename);
                 using (var fileStream = new FileStream(fullPath, FileMode.Create))
                 {
                     await BackImage.CopyToAsync(fileStream);
@@ -152,7 +152,7 @@ namespace web_lab1_fandom.Controllers
             {
                 if (series.Poster != null)
                 {
-                    var PhotoPath = _env.WebRootPath + series.Poster.Replace("..", "");
+                    var PhotoPath = _env.WebRootPath + series.Poster;
                     if (System.IO.File.Exists(PhotoPath))
                     {
                         System.IO.File.Delete(PhotoPath);
@@ -172,7 +172,7 @@ namespace web_lab1_fandom.Controllers
 
                 imagePath = imagePath + @"\";
 
-                var filePath = @".." + Path.Combine(imagePath, filename);
+                var filePath = Path.Combine(imagePath, filename);
                 using (var fileStream = new FileStream(fullPath, FileMode.Create))
                 {
                     await Poster.CopyToAsync(fileStream);
@@ -183,7 +183,7 @@ namespace web_lab1_fandom.Controllers
             {
                 if (series.BackImage != null)
                 {
-                    var PhotoPath = _env.WebRootPath + series.BackImage.Replace("..", "");
+                    var PhotoPath = _env.WebRootPath + series.BackImage;
                     if (System.IO.File.Exists(PhotoPath))
                     {
                         System.IO.File.Delete(PhotoPath);
@@ -203,7 +203,7 @@ namespace web_lab1_fandom.Controllers
 
                 imagePath = imagePath + @"\";
 
-                var filePath = @".." + Path.Combine(imagePath, filename);
+                var filePath = Path.Combine(imagePath, filename);
                 using (var fileStream = new FileStream(fullPath, FileMode.Create))
                 {
                     await BackImage.CopyToAsync(fileStream);
@@ -261,7 +261,7 @@ namespace web_lab1_fandom.Controllers
             var series = await _context.Series.FindAsync(id);
             if (series.Poster != null)
             {
-                var PosterPath = _env.WebRootPath + series.Poster.Replace("..", "");
+                var PosterPath = _env.WebRootPath + series.Poster;
                 if (System.IO.File.Exists(PosterPath))
                 {
                     System.IO.File.Delete(PosterPath);
@@ -270,7 +270,7 @@ namespace web_lab1_fandom.Controllers
 
             if (series.BackImage != null)
             {
-                var BackImage = _env.WebRootPath + series.BackImage.Replace("..", "");  
+                var BackImage = _env.WebRootPath + series.BackImage;
                 if (System.IO.File.Exists(BackImage))
                 {
                     System.IO.File.Delete(BackImage);

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <style media="screen">
         body {
-            /*background-image: url(/img/mainBack.jpg);*/
-            background-size:cover
+            background-image: url(/img/mainBack.jpg);
+            background-size:contain
         }
     </style>
 </head>
@@ -17,16 +17,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">web_lab1_fandom</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fandom</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Series" asp-action="Index">Series</a>
                         </li>
@@ -40,6 +37,9 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Casts" asp-action="Index">Casts</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-light" href="/CastsAPI/Index.html">CastsAPI</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -47,11 +47,12 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <main role="main" class="pb-3 mt-3 pt-3">
+        <div class="container"  style="background-color:rgba(255, 255, 255, 0.8)">
             @RenderBody()
-        </main>
-    </div>
+            <br />
+        </div>
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">

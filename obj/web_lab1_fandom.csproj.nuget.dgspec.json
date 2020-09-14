@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\web_lab1_fandom.csproj": {}
+    "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\web_lab1_fandom.csproj": {
+    "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
+        "projectUniqueName": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
         "projectName": "web_lab1_fandom",
-        "projectPath": "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
+        "projectPath": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
         "packagesPath": "C:\\Users\\VasMax10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VasMax10\\source\\repos\\web_lab1_fandom2\\obj\\",
+        "outputPath": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

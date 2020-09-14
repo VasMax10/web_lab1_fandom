@@ -32,6 +32,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.8",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "System.Configuration.ConfigurationManager": "4.7.0",
+          "bootstrap-colorpicker": "2.3.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -306,6 +307,12 @@
         },
         "compile": {
           "web_lab1_fandom.dll": {}
+        }
+      },
+      "bootstrap/2.3.1": {},
+      "bootstrap-colorpicker/2.3.2": {
+        "dependencies": {
+          "bootstrap": "2.3.1"
         }
       },
       "EntityFramework/6.4.4": {
@@ -4083,6 +4090,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "bootstrap/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SiFlq6RNrocS+G+Ov8ifXTuMIPd8IphUx7SVbxgvri64psUWMGKkMRDiaUDf3J3i96ClpjcJtcuKi9KW0bc9Kw==",
+      "path": "bootstrap/2.3.1",
+      "hashPath": "bootstrap.2.3.1.nupkg.sha512"
+    },
+    "bootstrap-colorpicker/2.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cYWcjV9jXJI+M4l0V15sJOTVlKPdLiBoOpv3AjJBC9Zs7rCdd+1/kPoMvSPCNcJxerQpdvch5s9S3Sz7k9UkPg==",
+      "path": "bootstrap-colorpicker/2.3.2",
+      "hashPath": "bootstrap-colorpicker.2.3.2.nupkg.sha512"
     },
     "EntityFramework/6.4.4": {
       "type": "package",
