@@ -13,7 +13,7 @@ namespace web_lab1_fandom.Models
         [Required(ErrorMessage = "This field is required")]
         public string Name { get; set; }
         [Display(Name = "Poster")]
-        [Required(ErrorMessage = "This field is required")]
+        //[Required(ErrorMessage = "This field is required")]
         public string Poster { get; set; }
         [Display(Name = "First Aired")]
         [Required(ErrorMessage = "This field is required")]

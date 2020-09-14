@@ -9198,24 +9198,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\acer\\.nuget\\packages\\": {},
+    "C:\\Users\\VasMax10\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\acer\\source\\repos\\VasMax10\\web_lab1_fandom\\web_lab1_fandom.csproj",
+      "projectUniqueName": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
       "projectName": "web_lab1_fandom",
-      "projectPath": "C:\\Users\\acer\\source\\repos\\VasMax10\\web_lab1_fandom\\web_lab1_fandom.csproj",
-      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acer\\source\\repos\\VasMax10\\web_lab1_fandom\\obj\\",
+      "projectPath": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\web_lab1_fandom.csproj",
+      "packagesPath": "C:\\Users\\VasMax10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\VasMax10\\Source\\Repos\\web_lab1_fandom2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\VasMax10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9297,7 +9300,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,10 +5,10 @@
 }
 
 <h1>Index</h1>
-
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -46,7 +46,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Poster)
+                <img src="@item.Poster" width="300" alt="" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Premiere)
@@ -55,7 +55,7 @@
                 @Html.DisplayFor(modelItem => item.IsEnded)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BackImage)
+                <img src="@item.BackImage" width="300" alt="" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MainColor)

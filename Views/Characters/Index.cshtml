@@ -46,7 +46,8 @@
                 @Html.DisplayFor(modelItem => item.Birthyear)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo)
+                <!--Html.DisplayFor(modelItem => item.Photo)-->
+                <img src="@item.Photo" width="300" alt=""/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)

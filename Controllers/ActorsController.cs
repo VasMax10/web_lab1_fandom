@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +15,14 @@ namespace web_lab1_fandom.Controllers
     public class ActorsController : Controller
     {
         private readonly FandomContext _context;
+        [Obsolete]
+        private readonly IHostingEnvironment _env;
 
-        public ActorsController(FandomContext context)
+        [Obsolete]
+        public ActorsController(FandomContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: Actors
@@ -53,8 +60,32 @@ namespace web_lab1_fandom.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Photo,Birthdate,Info")] Actors actors)
+        [Obsolete]
+        public async Task<IActionResult> Create(IFormFile Photo, [Bind("ID,Name,Birthdate,Info")] Actors actors)
         {
+            if (Photo != null && Photo.Length > 0)
+            {
+                var imagePath = @"\Upload\Images\Actors\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + Photo.FileName.Split(".")[1].ToLower());
+                
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await Photo.CopyToAsync(fileStream);
+                }
+                actors.Photo = filePath;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(actors);
@@ -85,11 +116,43 @@ namespace web_lab1_fandom.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Photo,Birthdate,Info")] Actors actors)
+        [Obsolete]
+        public async Task<IActionResult> Edit(int id, IFormFile Photo, [Bind("ID,Name,Photo,Birthdate,Info")] Actors actors)
         {
             if (id != actors.ID)
             {
                 return NotFound();
+            }
+            if (Photo != null && Photo.Length > 0)
+            {
+                if (actors.Photo != null)
+                {
+                    var PhotoPath = _env.WebRootPath + actors.Photo.Replace("..", "");
+                    if (System.IO.File.Exists(PhotoPath))
+                    {
+                        System.IO.File.Delete(PhotoPath);
+                    }
+                }
+                var imagePath = @"\Upload\Images\Actors\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + Photo.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await Photo.CopyToAsync(fileStream);
+                }
+                actors.Photo = filePath;
             }
 
             if (ModelState.IsValid)
@@ -125,6 +188,7 @@ namespace web_lab1_fandom.Controllers
 
             var actors = await _context.Actors
                 .FirstOrDefaultAsync(m => m.ID == id);
+            
             if (actors == null)
             {
                 return NotFound();
@@ -136,9 +200,18 @@ namespace web_lab1_fandom.Controllers
         // POST: Actors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Obsolete]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var actors = await _context.Actors.FindAsync(id);
+            if (actors.Photo != null)
+            {
+                var PhotoPath = _env.WebRootPath + actors.Photo.Replace("..", "");
+                if (System.IO.File.Exists(PhotoPath))
+                {
+                    System.IO.File.Delete(PhotoPath);
+                }
+            }
             _context.Actors.Remove(actors);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

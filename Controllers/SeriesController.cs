@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +15,14 @@ namespace web_lab1_fandom.Controllers
     public class SeriesController : Controller
     {
         private readonly FandomContext _context;
+        [Obsolete]
+        private readonly IHostingEnvironment _env;
 
-        public SeriesController(FandomContext context)
+        [Obsolete]
+        public SeriesController(FandomContext context,IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: Series
@@ -54,8 +61,55 @@ namespace web_lab1_fandom.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Poster,Premiere,IsEnded,BackImage,MainColor,SecondColor,Info")] Series series)
+        [Obsolete]
+        public async Task<IActionResult> Create(IFormFile Poster, IFormFile BackImage, [Bind("ID,Name,Premiere,IsEnded,MainColor,SecondColor,Info")] Series series)
         {
+            if (Poster != null && Poster.Length > 0)
+            {
+                var imagePath = @"\Upload\Images\Series\Posters\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + Poster.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await Poster.CopyToAsync(fileStream);
+                }
+                series.Poster = filePath;
+            }
+            if (BackImage != null && BackImage.Length > 0)
+            {
+                var imagePath = @"\Upload\Images\Series\BackImages\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + BackImage.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await BackImage.CopyToAsync(fileStream);
+                }
+                series.BackImage = filePath;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(series);
@@ -86,11 +140,75 @@ namespace web_lab1_fandom.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Poster,Premiere,IsEnded,BackImage,MainColor,SecondColor,Info")] Series series)
+        [Obsolete]
+        public async Task<IActionResult> Edit(int id, IFormFile Poster, IFormFile BackImage, [Bind("ID,Name,Poster,Premiere,IsEnded,BackImage,MainColor,SecondColor,Info")] Series series)
         {
             if (id != series.ID)
             {
                 return NotFound();
+            }
+
+            if (Poster != null && Poster.Length > 0)
+            {
+                if (series.Poster != null)
+                {
+                    var PhotoPath = _env.WebRootPath + series.Poster.Replace("..", "");
+                    if (System.IO.File.Exists(PhotoPath))
+                    {
+                        System.IO.File.Delete(PhotoPath);
+                    }
+                }
+                var imagePath = @"\Upload\Images\Series\Posters\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + Poster.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await Poster.CopyToAsync(fileStream);
+                }
+                series.Poster = filePath;
+            }
+            if (BackImage != null && BackImage.Length > 0)
+            {
+                if (series.BackImage != null)
+                {
+                    var PhotoPath = _env.WebRootPath + series.BackImage.Replace("..", "");
+                    if (System.IO.File.Exists(PhotoPath))
+                    {
+                        System.IO.File.Delete(PhotoPath);
+                    }
+                }
+                var imagePath = @"\Upload\Images\Series\BackImages\";
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                var uniqFileName = Guid.NewGuid().ToString();
+                var filename = Path.GetFileName(uniqFileName + "." + BackImage.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await BackImage.CopyToAsync(fileStream);
+                }
+                series.BackImage = filePath;
             }
 
             if (ModelState.IsValid)
@@ -137,9 +255,27 @@ namespace web_lab1_fandom.Controllers
         // POST: Series/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Obsolete]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var series = await _context.Series.FindAsync(id);
+            if (series.Poster != null)
+            {
+                var PosterPath = _env.WebRootPath + series.Poster.Replace("..", "");
+                if (System.IO.File.Exists(PosterPath))
+                {
+                    System.IO.File.Delete(PosterPath);
+                }
+            }
+
+            if (series.BackImage != null)
+            {
+                var BackImage = _env.WebRootPath + series.BackImage.Replace("..", "");  
+                if (System.IO.File.Exists(BackImage))
+                {
+                    System.IO.File.Delete(BackImage);
+                }
+            }
             _context.Series.Remove(series);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
