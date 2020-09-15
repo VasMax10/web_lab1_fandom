@@ -26,9 +26,21 @@ namespace web_lab1_fandom.Controllers
         }
 
         // GET: Characters
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id, string name, string backImg)
         {
-            return View(await _context.Characters.ToListAsync());
+            //if (id == null) return RedirectToAction("Series","Index");
+            ViewBag.SeriesID = id;
+            ViewBag.SeriesName = name;
+            if (backImg != null)
+                backImg = backImg.Replace('\\', '/');
+            ViewBag.backImg = backImg;
+            if (id == null || name == null)
+            {
+                var _fandomContext = _context.Casts.Include(c => c.Actor).Include(c => c.Character);
+                return View(await _context.Characters.ToListAsync());
+            }
+            var fandomContext = _context.Characters.Where(c => c.SeriesID == id).Include(c => c.Series);
+            return View(await fandomContext.ToListAsync());
         }
 
         // GET: Characters/Details/5

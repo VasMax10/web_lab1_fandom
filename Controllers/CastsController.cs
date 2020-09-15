@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using web_lab1_fandom.Models;
 
 namespace web_lab1_fandom.Controllers
@@ -21,12 +22,18 @@ namespace web_lab1_fandom.Controllers
         // GET: Casts
         public async Task<IActionResult> Index(int? id, string name, string backImg)
         {
+            //if (id == null) return RedirectToAction("Series", "Index");
             ViewBag.SeriesID = id;
             ViewBag.SeriesName = name;
             if (backImg!= null)
                 backImg = backImg.Replace('\\', '/');
             ViewBag.backImg = backImg;
-            var fandomContext = _context.Casts.Include(c => c.Actor).Include(c => c.Character);
+            if(id == null || name == null)
+                {
+                    var _fandomContext = _context.Casts.Include(c => c.Actor).Include(c => c.Character);
+                    return View(await _fandomContext.ToListAsync());
+                }
+            var fandomContext = _context.Casts.Include(c => c.Actor).Include(e => e.Character).Include(e => e.Character.Series).Where(e => e.CharacterID == e.Character.ID).Where(e => e.Character.SeriesID == id);
             return View(await fandomContext.ToListAsync());
         }
 

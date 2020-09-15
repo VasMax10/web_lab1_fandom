@@ -5,6 +5,7 @@
 }
 
 <link rel="stylesheet" href="~/css/flipCard.css" />
+
 <style media="screen">
     body {
         background-image: url( @ViewBag.backImg );
@@ -15,7 +16,14 @@
         background-size: cover;
     }
 </style>
-
+<script>
+    function Change() {
+        if ((Boolean)(@ViewBag.backImg) == false) {
+            document.body.style.backgroundImage = "url(/img/mainBack.jpg)";
+        }      
+    }
+</script>
+<body onload="Change()"></body>
 <h1>Cast of "@ViewBag.SeriesName"</h1>
 
 <p>
@@ -47,5 +55,6 @@
     }
 
 </div>
+
 
 
