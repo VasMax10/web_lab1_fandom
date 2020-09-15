@@ -28,12 +28,10 @@ namespace web_lab1_fandom.Controllers
             public UserCast(Casts casts, string aName, string aPhoto, string cName, string cPhoto)
             {
                 ID = casts.ID;
-                SeriesID = casts.SeriesID;
                 ActorID = casts.ActorID;
                 CharacterID = casts.CharacterID;
                 FirstAppereance = casts.FirstAppereance;
                 LastAppereance = casts.LastAppereance;
-                Series = casts.Series;
                 Actor = casts.Actor;
                 Character = casts.Character;
                 ActorName = aName;

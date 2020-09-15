@@ -34,6 +34,7 @@ namespace web_lab1_fandom.Models
         public string SecondColor { get; set; }
         [Display(Name = "Information")]
         public string Info { get; set; }
-        public virtual ICollection<Casts> Cast { get; set; }
+        //public virtual ICollection<Casts> Cast { get; set; }
+        public virtual ICollection<Characters> Characters { get; set; }
     }
 }

@@ -19,9 +19,14 @@ namespace web_lab1_fandom.Controllers
         }
 
         // GET: Casts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id, string name, string backImg)
         {
-            var fandomContext = _context.Casts.Include(c => c.Actor).Include(c => c.Character).Include(c => c.Series);
+            ViewBag.SeriesID = id;
+            ViewBag.SeriesName = name;
+            if (backImg!= null)
+                backImg = backImg.Replace('\\', '/');
+            ViewBag.backImg = backImg;
+            var fandomContext = _context.Casts.Include(c => c.Actor).Include(c => c.Character);
             return View(await fandomContext.ToListAsync());
         }
 
@@ -36,7 +41,6 @@ namespace web_lab1_fandom.Controllers
             var casts = await _context.Casts
                 .Include(c => c.Actor)
                 .Include(c => c.Character)
-                .Include(c => c.Series)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (casts == null)
             {
@@ -51,7 +55,6 @@ namespace web_lab1_fandom.Controllers
         {
             ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "Name");
             ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "Name");
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name");
             return View();
         }
 
@@ -70,7 +73,6 @@ namespace web_lab1_fandom.Controllers
             }
             ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "ID", casts.ActorID);
             ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "ID", casts.CharacterID);
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "ID", casts.SeriesID);
             return View(casts);
         }
 
@@ -89,7 +91,6 @@ namespace web_lab1_fandom.Controllers
             }
             ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "Name", casts.ActorID);
             ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "Name", casts.CharacterID);
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name", casts.SeriesID);
             return View(casts);
         }
 
@@ -127,7 +128,6 @@ namespace web_lab1_fandom.Controllers
             }
             ViewData["ActorID"] = new SelectList(_context.Actors, "ID", "ID", casts.ActorID);
             ViewData["CharacterID"] = new SelectList(_context.Characters, "ID", "ID", casts.CharacterID);
-            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "ID", casts.SeriesID);
             return View(casts);
         }
 
@@ -142,7 +142,6 @@ namespace web_lab1_fandom.Controllers
             var casts = await _context.Casts
                 .Include(c => c.Actor)
                 .Include(c => c.Character)
-                .Include(c => c.Series)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (casts == null)
             {

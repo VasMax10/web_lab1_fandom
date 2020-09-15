@@ -52,6 +52,7 @@ namespace web_lab1_fandom.Controllers
         // GET: Characters/Create
         public IActionResult Create()
         {
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name");
             return View();
         }
 
@@ -61,7 +62,7 @@ namespace web_lab1_fandom.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Obsolete]
-        public async Task<IActionResult> Create(IFormFile Photo, [Bind("ID,Name,Gender,Birthyear,Status,Info")] Characters characters)
+        public async Task<IActionResult> Create(IFormFile Photo, [Bind("ID,Name,Gender,Birthyear,Status,Info,SeriesID")] Characters characters)
         {
             if (Photo != null && Photo.Length > 0)
             {
@@ -92,6 +93,7 @@ namespace web_lab1_fandom.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "ID", characters.SeriesID);
             return View(characters);
         }
 
@@ -108,6 +110,7 @@ namespace web_lab1_fandom.Controllers
             {
                 return NotFound();
             }
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name", characters.SeriesID);
             return View(characters);
         }
 
@@ -117,7 +120,7 @@ namespace web_lab1_fandom.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Obsolete]
-        public async Task<IActionResult> Edit(int id, IFormFile Photo, [Bind("ID,Name,Gender,Photo,Birthyear,Status,Info")] Characters characters)
+        public async Task<IActionResult> Edit(int id, IFormFile Photo, [Bind("ID,Name,Gender,Photo,Birthyear,Status,Info,SeriesID")] Characters characters)
         {
             if (id != characters.ID)
             {
@@ -175,6 +178,7 @@ namespace web_lab1_fandom.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["SeriesID"] = new SelectList(_context.Series, "ID", "Name", characters.SeriesID);
             return View(characters);
         }
 

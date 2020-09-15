@@ -29,6 +29,10 @@ namespace web_lab1_fandom.Models
         [Display(Name = "Information")]
         public string Info { get; set; }
 
+        [Required(ErrorMessage = "This field is required")]
+        [Display(Name = "Series")]
+        public int SeriesID { get; set; }
+        public virtual Series Series { get; set; }
         public virtual ICollection<Casts> Cast { get; set; }
     }
 }

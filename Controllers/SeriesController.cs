@@ -47,7 +47,7 @@ namespace web_lab1_fandom.Controllers
             }
 
             //return View(series);
-            return RedirectToAction("Index", "Casts", new { id = series.ID, name = series.Name });
+            return RedirectToAction("Index", "Casts", new { id = series.ID, name = series.Name, backImg = series.BackImage });
         }
 
         // GET: Series/Create
