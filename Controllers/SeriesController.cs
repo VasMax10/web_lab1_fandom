@@ -50,6 +50,25 @@ namespace web_lab1_fandom.Controllers
             return RedirectToAction("Index", "Casts", new { id = series.ID, name = series.Name, backImg = series.BackImage });
         }
 
+        // GET: Series/Characters/5
+        public async Task<IActionResult> Characters(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var series = await _context.Series
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (series == null)
+            {
+                return NotFound();
+            }
+
+            //return View(series);
+            return RedirectToAction("Index", "Characters", new { id = series.ID, name = series.Name, backImg = series.BackImage });
+        }
+
         // GET: Series/Create
         public IActionResult Create()
         {
